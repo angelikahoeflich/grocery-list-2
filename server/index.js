@@ -1,7 +1,8 @@
 const express = require('express');
 const app = express();
 const port = 4040;
-const ctrl = require('./controller')
+const ctrl = require('./controller');
+const cors = require ('cors');
 
 
 //middleware

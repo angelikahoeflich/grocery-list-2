@@ -1,39 +1,57 @@
-const ingredients = require('./ingredients.json');
-let list =[];
+const database = require('./ingredients.json');
+let nextId = database.ingredients.length + 1;
 
 module.exports = {
 
-  getIngredients: (req, res) => {
-    return res.status(200).json(ingredients)
+  getIngredients:(req, res) => {
+    res.status(200).json(database.ingredients);
+
   },
-  addToList: (req, res) => {
-    let foodArr = ingredients;
-    let newIngredient= ''
+  getIngredient: (req, res) => {
+    const {id} = req.params;
+    const chosenIngredient = database.ingredients.filter(ingredient => ingredient.id === id)
 
-    newIngredient = req.body
+    res.status(200).json(chosenIngredient);
+  },
+  addIngredient: (req, res) => {
+    const newIngredient = req.body;
 
-    foodArr.push({
-      id: foodArr.length+1,
+    database.ingredients.push({
+      id: nextId++,
       name: newIngredient.name
     })
-    console.log(ingredientsList)
-
-    res.status(200).send(foodArr)
-
+    res.status(201).json(database.ingredients)
   },
-  editQuantity: (req, res) => {
-    const { index } = req.params;
-    const { quantity } = req.body;
 
-    list[index].quantity = quantity;
+  updateIngredient: (req, res) => {
+    const {id} = req.params;
+    const { newName} = req.body;
 
-    res.status(200).send(list);
+    const updateIngredient = {
+      id: +id,
+      name: newName
+    }
+    console.log("updatedIngredient", updatedIngredient)
+
+    const indexToChange = database.ingredients.findIndex(ingredient => ingredient.id === +id);
+
+    database.ingredients[indexToChange] = updatedIngredient;
+
+    res.status(200).json(database.ingredients);
   },
-  removeFromList: (req, res) => {
-    const { index } = req.params;
 
-    list.splice(index, 1);
+  deleteIngredient: (req, res) => {
+    const {id} = req.params;
+    const {ingredient} = database;
 
-    res.status(200).send(list);
+    const newList = ingredients.filter(ingredient => ingredient.id !== +id);
+
+    database.ingredients = newList;
+
+    res.status(200).json(newList);
+
+
   }
+
+
 }

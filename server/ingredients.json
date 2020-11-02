@@ -1,9 +1,32 @@
- [ 
-    {"id": 1, "name" : "pasta"},
-    {"id": 2,"name":"bread"},
-    {"id":3, "name": "rice"},
-    {"id": 4, "name":"beans"},
-    {"id":5, "name" :"quinoa"},
+{
+  "ingredients" : [
+    {"id": 1, "name": "bread"},
+    {"id": 2, "name": "pasta"},
+    {"id": 3, "name": "rice"},
+    {"id": 4, "name": "beans"},
+    {"id": 5, "name": "quinoa"},
     {"id": 6, "name": "almond milk"},
-    {"id":7, "name":"coconut oil"}
-  ] 
+    {"id": 7, "name": "coconut oil"},
+    {"id": 8, "name": "salt"},
+    {"id": 9, "name": "tomato sauce"},
+    {"id": 10, "name": "lemon juice"},
+    {"id": 11, "name": "parmesan"},
+    {"id": 12, "name": "red onion"},
+    {"id": 13, "name": "bell pepper"},
+    {"id": 14, "name": "zucchini"},
+    {"id": 15, "name": "garlic"},
+    {"id": 16, "name": "squash"},
+    {"id": 17, "name": "olive oil"},
+    {"id": 18, "name": "tomato"},
+    {"id": 19, "name": "chicken"},
+  ],
+
+  "recipes": [
+    {
+      "id": 1,
+      "name": "Pasta Primavera",
+      "ingredients": ["pasta", "salt", "olive oil", "zucchini", "tomato", "red onion"]
+    }
+  ]
+}
+
