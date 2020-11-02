@@ -1,0 +1,9 @@
+ [ 
+    {"id": 1, "name" : "pasta"},
+    {"id": 2,"name":"bread"},
+    {"id":3, "name": "rice"},
+    {"id": 4, "name":"beans"},
+    {"id":5, "name" :"quinoa"},
+    {"id": 6, "name": "almond milk"},
+    {"id":7, "name":"coconut oil"}
+  ] 
