@@ -7,6 +7,7 @@ function IngredientsList (props){
     toggleEdit,
     cancelEdit,
     updateIngredient,
+    selectIngredient,
     deleteIngredient
   } = props
 
@@ -25,14 +26,14 @@ function IngredientsList (props){
         </>
         :
         <>
-        <button className="select">
-          add plus here
+        <button className="select" onClick={selectIngredient}>
+        +
         </button>
-        <button className="edit">
-          add pencil icon here
+        <button className="edit" onClick={toggleEdit}>
+        ✎
         </button>
-        <button className="delete">
-          add x here
+        <button className="delete" onClick={deleteIngredient.bind(this, ingredient.id)}>
+        ✕
         </button>
         </>
 

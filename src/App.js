@@ -20,6 +20,7 @@ class App extends Component {
     this.updateIngredient = this.updateIngredient.bind(this);
     this.newItemChange = this.newItemChange.bind(this);
     this.listenForEnter = this.listenForEnter.bind(this);
+    this.selectIngredient = this.selectIngredient.bind(this);
   }
   
 
@@ -34,9 +35,18 @@ class App extends Component {
         .catch((err) => console.log(err));
   }
   
-  selectIngredient = (index) => {
-    console.log("index", index);
-    console.log("this:", this.state.ingredients.filter(i => i.id === index));
+  selectIngredient(click) {
+    const ingredientId = click.target.parentElement.getAttribute("index");
+    const selectedIngredient = this.state.ingredients.filter(
+      ingredient => +ingredientId === ingredient.id
+    );
+
+    selectedIngredient[0].quantity = 1;
+
+    this.setState({
+      selected: [...this.state.selected, selectedIngredient[0]]
+    })
+  
   }
 
   updateIngredient(click){
@@ -87,10 +97,11 @@ class App extends Component {
       let newIngredient = {
         name: this.state.newItemValue
       }
+      console.log("newIngredient", newIngredient);
       Axios.post("http://localhost:4040/api/ingredients", newIngredient)
       .then((res) => {
         this.setState({
-          ingredient:res.data,
+          ingredients: res.data,
           newItemValue: ''
         });
       })
@@ -116,11 +127,12 @@ class App extends Component {
             updateIngredient={this.updateIngredient}
             deleteIngredient={this.deleteIngredient}
 
+
             toggleEdit={this.toggleEdit}
             cancelEdit={this.cancelEdit} />
         </section>
 
-        <section>
+        <section className="selected">
           <h3>GROCERY LIST</h3>
           <SelectedIngredients list={this.state.selected}/>
 

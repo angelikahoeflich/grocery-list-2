@@ -18,7 +18,7 @@
     {"id": 16, "name": "squash"},
     {"id": 17, "name": "olive oil"},
     {"id": 18, "name": "tomato"},
-    {"id": 19, "name": "chicken"},
+    {"id": 19, "name": "chicken"}
   ],
 
   "recipes": [

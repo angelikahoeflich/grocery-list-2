@@ -18,7 +18,7 @@
 }
 
 body{
-  background-image: url('./');
+  background-image: url('./images/background-img.jpg');
   background-position: absolute;
 }
 
@@ -31,6 +31,13 @@ body{
 
 .selected-ingredients > button {
   display:inline-block;
+}
+
+.selected > ul > li {
+  background-color: rgba(255,255,255,0.75);
+  padding: .75em;
+  border-radius: 5px;
+  border: 1px solid white;
 }
 
 .ingredients{

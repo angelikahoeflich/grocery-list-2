@@ -42,7 +42,7 @@ module.exports = {
 
   deleteIngredient: (req, res) => {
     const {id} = req.params;
-    const {ingredient} = database;
+    const {ingredients} = database;
 
     const newList = ingredients.filter(ingredient => ingredient.id !== +id);
 
