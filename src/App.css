@@ -1,0 +1,73 @@
+/* reset */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: 'Grandstander', sans-serif;
+}
+
+/* header */
+
+.header{
+  text-align: center;
+  padding: 20px;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+body{
+  background-image: url('./');
+  background-position: absolute;
+}
+
+.main-list{
+  max-width: 40vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.selected-ingredients > button {
+  display:inline-block;
+}
+
+.ingredients{
+  background-color: rgba(255,255,255,0.75);
+  padding: 1.5em;
+  border-radius: 5px;
+  border: 1px solid white;
+}
+
+.ingredients > ul > li {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.ingredients > ul > li > p {
+  flex-basis: 150px;
+}
+
+.ingredients > ul > li p[contenteditable="true"]{
+  background-color: white;
+}
+
+.ingredients > ul > li > button {
+  width: 20px;
+  height: 20px;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.ingredients > ul > li > button.save,
+.ingredients > ul > li > button.cancel{
+  width: auto;
+  opacity: 1;
+}
+
+.ingredients > ul > li:hover > button {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out;
+}
