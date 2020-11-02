@@ -4,17 +4,16 @@ const port = 4040;
 const ctrl = require('./controller')
 
 
-
+//middleware
 app.use(express.json());
 
-// endpoints
+// crud/ endpoints
 
-app.get("/api/ingredients", ctrl.getIngredients);
-app.post('/api/ingredients/:id', ctrl.addToList);
-app.put('/api/ingredients/:index', ctrl.editQuantity);
-app.delete('/api/ingredients/:index', ctrl.removeFromList);
-
-
+app.get('/api/ingredients', ctrl.getIngredients);
+app.get('api/ingredients/:id', ctrl.getIngredient);
+app.post('/api/ingredients', ctrl.addIngredient);
+app.put('/api/ingredient/:id', ctrl.updateIngredient);
+app.delete('/api/ingredients/:id', ctrl.deleteIngredient);
 
 
 app.listen(port, console.log( `Listening on port ${port}`));
