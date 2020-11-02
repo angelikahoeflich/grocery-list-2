@@ -10,7 +10,7 @@ module.exports = {
     let foodArr = ingredients;
     let newIngredient= ''
 
-    newIngredient = req.body.index
+    newIngredient = req.body
 
     foodArr.push({
       id: foodArr.length+1,
