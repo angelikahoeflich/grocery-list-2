@@ -3,6 +3,7 @@ import './App.css';
 import Axios from 'axios';
 import IngredientsList from './Components/IngredientsList';
 import SelectedIngredients from './Components/SelectedIngredients';
+import Header from './Components/Header';
 
 class App extends Component {
   constructor(){
@@ -112,13 +113,13 @@ class App extends Component {
   render(){
     return(
       <div>
-        <header className="header">
-          <h1>WHAT'S IN YOUR FRIDGE?</h1>
-        </header>
+        <Header/>
+      
         <main className="main-list">
         <section className ="ingredients">
-          <h3>Ingredients:</h3>
+          <h3>Items:</h3>
           <input id="newItem" type="text" value={this.state.newItemValue} onChange={this.newItemChange} onKeyPress={this.listenForEnter}/>
+
           <IngredientsList 
             ingredients={this.state.ingredients}
             currentlyEditing={this.state.currentlyEditing}
